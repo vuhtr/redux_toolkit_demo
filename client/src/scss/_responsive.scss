@@ -1,0 +1,68 @@
+// Define the pivot pixels for devices
+$xs: 0;
+$sm: 600px; // small
+$md: 960px; // medium
+$lg: 1280px; // large
+
+// Mixins for responsive design
+// Usage at other .scss files: 
+//      @include md_down { ... }
+
+// Monitor width <= $sm
+@mixin sm_down {
+    @media (max-width: #{$sm - 0.05px}) {
+        @content;
+    }
+}
+
+// Monitor width >= $sm
+@mixin sm_up {
+    @media (min-width: #{$sm}) {
+        @content;
+    }
+}
+
+// Monitor width <= $md
+@mixin md_down {
+    @media (max-width: #{$md - 0.05px}) {
+        @content;
+    }
+}
+
+// Monitor width >= $sm and <= $md
+@mixin md {
+    @media (min-width: #{$sm}) and (max-width: #{$md - 0.05px}) {
+        @content;
+    }
+}
+
+// Monitor width >= $md
+@mixin md_up {
+    @media (min-width: #{$md}) {
+        @content;
+    }
+}
+
+// Monitor width <= $lg
+@mixin lg_down {
+    @media (max-width: #{$lg - 0.05px}) {
+        @content;
+    }
+}
+
+// Monitor width >= $md and <= $lg
+@mixin lg {
+    @media (min-width: #{$md}) and (max-width: #{$lg - 0.05px}) {
+        @content;
+    }
+}
+
+// Monitor width >= $lg
+@mixin lg_up {
+    @media (min-width: #{$lg}) {
+        @content;
+    }
+}
+
+
+
