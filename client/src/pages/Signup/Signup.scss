@@ -25,4 +25,14 @@
         margin-top: 8px;
         border-radius: 10px;
     }
+
+    &__swap {
+        margin-top: 16px;
+        text-align: center;
+
+        a {
+            font-weight: bold;
+            color: $primary-color;
+        }
+    }
 }

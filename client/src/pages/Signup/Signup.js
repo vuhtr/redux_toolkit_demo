@@ -1,5 +1,5 @@
 import React from "react"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { Button } from "@mui/material"
 
@@ -7,8 +7,8 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
-import { FormTextField } from "components/FormTextField"
-import { FormSubmitAlert } from "components/FormSubmitAlert"
+import { FormTextField } from "components/Form"
+import { FormSubmitAlert } from "components/Form"
 
 import { useDispatch } from "react-redux"
 import { login } from "redux/userSlice"
@@ -70,7 +70,7 @@ export default function Signup() {
                     <FormTextField
                         name="fullName"
                         control={control}
-                        errorField={errors.fullName}
+                        errorField={errors.fullName || errors.signup}
                         errorText={errors.fullName}
                         placeHolder="Full name"
                     />
@@ -78,7 +78,7 @@ export default function Signup() {
                     <FormTextField
                         name="email"
                         control={control}
-                        errorField={errors.email}
+                        errorField={errors.email || errors.signup}
                         errorText={errors.email}
                         placeHolder="Email"
                     />
@@ -87,7 +87,7 @@ export default function Signup() {
                         name="password"
                         type="password"
                         control={control}
-                        errorField={errors.password}
+                        errorField={errors.password || errors.signup}
                         errorText={errors.password}
                         placeHolder="Password"
                     />
@@ -96,7 +96,7 @@ export default function Signup() {
                         name="confirmPassword"
                         type="password"
                         control={control}
-                        errorField={errors.confirmPassword}
+                        errorField={errors.confirmPassword || errors.signup}
                         errorText={errors.confirmPassword}
                         placeHolder="Confirm password"
                     />
@@ -112,6 +112,10 @@ export default function Signup() {
                         Join Welance
                     </Button>
                 </form>
+
+                <div className="signup__swap">
+                    <p>Already have an account? <Link to={pathNames.LOGIN}>Log In!</Link></p>
+                </div>
             </div>
         </div>
     )

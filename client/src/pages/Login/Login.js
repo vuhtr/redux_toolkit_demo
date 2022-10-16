@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { Button } from "@mui/material"
 
@@ -6,8 +6,8 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import { useForm } from "react-hook-form"
 import * as yup from "yup"
 
-import { FormTextField } from "components/FormTextField"
-import { FormSubmitAlert } from "components/FormSubmitAlert"
+import { FormTextField } from "components/Form"
+import { FormSubmitAlert } from "components/Form"
 
 import { login } from "redux/userSlice"
 import { useDispatch } from "react-redux"
@@ -88,6 +88,10 @@ export default function Login() {
                         Login
                     </Button>
                 </form>
+
+                <div className="login__swap">
+                    <p>Don't have an account? <Link to={pathNames.SIGNUP}>Sign Up!</Link></p>
+                </div>
             </div>
         </div>
     )

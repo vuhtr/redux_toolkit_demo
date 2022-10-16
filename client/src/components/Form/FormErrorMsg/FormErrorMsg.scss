@@ -1,0 +1,21 @@
+.form-error-msg {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    svg {
+        color: red;
+        font-size: 14px;
+        margin-top: -2px;
+    }
+
+    p {
+        color: red;
+        font-size: 13px;
+        margin-left: 6px;
+    }
+
+    &--error {
+        border-color: red;
+    }
+}
