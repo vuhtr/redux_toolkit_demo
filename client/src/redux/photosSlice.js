@@ -4,6 +4,9 @@ const photoSlice = createSlice({
     name: "photoSlice",
     initialState: [],
     reducers: {
+        setPhotos: (state, action) => {
+            return action.payload
+        },
         addPhoto: (state, action) => {
             state.push(action.payload)
         },
@@ -20,5 +23,5 @@ const photoSlice = createSlice({
 })
 
 const { reducer, actions } = photoSlice
-export const { addPhoto, removePhoto, editPhoto } = actions
+export const { setPhotos, addPhoto, removePhoto, editPhoto } = actions
 export default reducer

@@ -1,0 +1,80 @@
+.photoCard {
+    height: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+    &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        resize: both;
+    }
+
+    & &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        animation: fadeIn 0.3s;
+        background-color: rgba(0, 0, 0, 0.5);
+        
+        p {
+            color: #fff;
+        }
+
+        // keyframe
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__title {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    &__bottom {
+        position: absolute;
+        display: flex;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+    }
+
+    &__action {
+        display: flex;
+        align-items: center;
+
+        svg {
+            font-size: 20px;
+            margin-left: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: #fff;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+    }
+}

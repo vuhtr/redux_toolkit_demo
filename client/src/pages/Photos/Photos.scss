@@ -1,0 +1,55 @@
+@import "./PhotoCard/PhotoCard.scss";
+
+.photos {
+    margin: 32px 0;
+
+    h1 {
+        text-align: center;
+    }
+
+    &__welcome {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            margin-top: 32px;
+            width: 500px;
+            height: 500px;
+        }
+    }
+
+    &__add {
+        margin: 16px 0;
+        text-align: center;
+        font-weight: bold;
+
+        a {
+            color: $primary-color;
+        }
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-gap: 32px;
+        margin: 20px 0;
+    }
+
+    &__empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 500px;
+            height: 500px;
+        }
+
+        p {
+            margin-top: -50px;
+            font-size: 20px;
+        }
+    }
+}
