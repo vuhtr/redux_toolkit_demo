@@ -1,0 +1,33 @@
+.form-submit-alert {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 16px 8px;
+    border-radius: 8px;
+    border-left: 4px solid red;
+    margin: 8px 0;
+    position: relative;
+
+    svg {
+        color: red;
+        font-size: 20px;
+    }
+
+    p {
+        flex: 1;
+        font-size: 14px;
+        margin-left: 6px;
+    }
+
+    &__close {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+        font-size: 14px;
+        cursor: pointer;
+
+        svg {
+            color: #ccc;
+        }
+    }
+}
