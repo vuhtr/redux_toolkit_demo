@@ -11,9 +11,10 @@ const photoSlice = createSlice({
             state.push(action.payload)
         },
         removePhoto: (state, action) => {
+            console.log(action)
             return state.filter((photo) => photo.id !== action.payload.id)
         },
-        editPhoto: (state, action) => {
+        updatePhoto: (state, action) => {
             const photoIndex = state.findIndex((photo) => photo.id === action.payload.id)
             if (photoIndex >= 0) {
                 state[photoIndex] = action.payload
@@ -23,5 +24,5 @@ const photoSlice = createSlice({
 })
 
 const { reducer, actions } = photoSlice
-export const { setPhotos, addPhoto, removePhoto, editPhoto } = actions
+export const { setPhotos, addPhoto, removePhoto, updatePhoto } = actions
 export default reducer

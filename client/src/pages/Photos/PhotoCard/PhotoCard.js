@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete"
 
 import { capitalize } from 'utils/utils'
 
-export default function PhotoCard({ photo }) {
+export default function PhotoCard({ photo, handleOnEdit, handleOnRemove }) {
     const [isHover, setIsHover] = useState(false)
 
     return (
@@ -24,8 +24,8 @@ export default function PhotoCard({ photo }) {
                     <div className="photoCard__bottom">
                         <p className="photoCard__category">{capitalize(photo.category)}</p>
                         <div className="photoCard__action">
-                            <ModeEditIcon />
-                            <DeleteIcon />
+                            <ModeEditIcon onClick={() => handleOnEdit(photo.id)} />
+                            <DeleteIcon onClick={() => handleOnRemove(photo.id)}/>
                         </div>
                     </div>
                 </div>

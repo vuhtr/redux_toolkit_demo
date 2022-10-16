@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Container } from "@mui/material"
 
-import { Link } from "react-router-dom"
+import { Link, useNavigate, createSearchParams } from "react-router-dom"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -10,10 +10,11 @@ import { PhotoCard } from "./PhotoCard"
 import photosApi from "api/photosApi"
 import pathNames from "routes/pathNames"
 
-import { setPhotos } from "redux/photosSlice"
+import { removePhoto, setPhotos } from "redux/photosSlice"
 
 export default function Photos() {
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const user = useSelector((state) => state.user.userInfo)
     const photos = useSelector((state) => state.photos)
 
@@ -26,8 +27,27 @@ export default function Photos() {
         if (user.id)
             fetchPhotos()
 
-        console.log('Call API to get user\'s photos')
-    }, [user.id])
+        console.log("Call API to get user's photos")
+
+    }, [user, dispatch])
+
+    const handleOnEdit = (id) => {
+        navigate({
+            pathname: pathNames.PHOTOS_ADD_EDIT,
+            search: createSearchParams({
+                photoId: id,
+            }).toString(),
+        })
+    }
+
+    const handleOnRemove = (id) => {
+        const remove = async () => {
+            const response = await photosApi.remove(id)
+            dispatch(removePhoto({ id }))
+        }
+
+        remove()
+    }
 
     return (
         <div className="photos">
@@ -43,7 +63,12 @@ export default function Photos() {
                         {photos.length > 0 ? (
                             <div className="photos__grid">
                                 {photos.map((photo) => (
-                                    <PhotoCard key={photo.id} photo={photo} />
+                                    <PhotoCard
+                                        key={photo.id}
+                                        photo={photo}
+                                        handleOnEdit={handleOnEdit}
+                                        handleOnRemove={handleOnRemove}
+                                    />
                                 ))}
                             </div>
                         ) : (

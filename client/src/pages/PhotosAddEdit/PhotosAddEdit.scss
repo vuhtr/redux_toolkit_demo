@@ -1,0 +1,36 @@
+@import "./PhotoPicker/PhotoPicker.scss";
+
+.photos-add-edit {
+    margin: 32px 0;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    &__form {
+        margin-top: 32px;
+        width: 400px;
+        max-width: calc(100% - 32px);
+        display: flex;
+        flex-direction: column;
+
+        input {
+            width: 100%;
+        }
+    }
+
+    &__select {
+        margin: 8px 0;
+    }
+
+    &__btn {
+        margin-top: 8px;
+    }
+}

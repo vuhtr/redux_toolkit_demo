@@ -1,0 +1,17 @@
+.photo-picker {
+    margin-bottom: 8px;
+
+    &__btn {
+        border-radius: 10px;
+        margin-bottom: 8px;
+    }
+
+    &__photo {
+        width: 100%;
+    }
+
+    &__btn button {
+        background-color: $secondary-color;
+        color: $text-primary-color;
+    }
+}
