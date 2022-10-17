@@ -2,7 +2,7 @@
 const COLORS = {
     primary: '#3c9add',
     primaryDark: '#2f76a8',
-    primaryRight: '#68c0ff',
+    primaryLight: '#68c0ff',
     secondary: '#8ee1ff',
 }
 
