@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Container } from "@mui/material"
 
-import { Link, useNavigate, createSearchParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -32,17 +32,12 @@ export default function Photos() {
     }, [user, dispatch])
 
     const handleOnEdit = (id) => {
-        navigate({
-            pathname: pathNames.PHOTOS_ADD_EDIT,
-            search: createSearchParams({
-                photoId: id,
-            }).toString(),
-        })
+        navigate(`${pathNames.PHOTOS_ADD_EDIT}/${id}`)
     }
 
     const handleOnRemove = (id) => {
         const remove = async () => {
-            const response = await photosApi.remove(id)
+            await photosApi.remove(id)
             dispatch(removePhoto({ id }))
         }
 
@@ -73,7 +68,7 @@ export default function Photos() {
                             </div>
                         ) : (
                             <div className="photos__empty">
-                                <img src="https://assets.materialup.com/uploads/8b0ec3cb-a32d-40bb-b17d-66b9fd744172/attachment.jpg" />
+                                <img src="https://assets.materialup.com/uploads/8b0ec3cb-a32d-40bb-b17d-66b9fd744172/attachment.jpg" alt="empty photos" />
                                 <p>You have no photos</p>
                             </div>
                         )}

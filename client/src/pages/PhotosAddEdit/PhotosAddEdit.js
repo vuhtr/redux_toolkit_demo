@@ -1,6 +1,6 @@
 import React from "react"
 
-import { useNavigate, useSearchParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -8,12 +8,12 @@ import * as yup from "yup"
 
 import { Button, Container } from "@mui/material"
 
-import { FormSelect, FormTextField, FormSubmitAlert } from "components/Form"
-import { PhotoPicker } from "./PhotoPicker"
-
 import { useDispatch, useSelector } from "react-redux"
 import { addPhoto, updatePhoto } from "redux/photosSlice"
 import photosApi from "api/photosApi"
+
+import { FormSelect, FormTextField, FormSubmitAlert } from "components/Form"
+import { PhotoPicker } from "components/PhotoPicker"
 
 import { PHOTOS_CATEGORY } from "constants/photoCategories"
 
@@ -21,7 +21,8 @@ import pathNames from "routes/pathNames"
 
 import { NotFound } from "pages/NotFound"
 
-export default function PhotosAddEdit({ isAddMode }) {
+
+export default function PhotosAddEdit() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const userId = useSelector((state) => state.user.userInfo.id)
@@ -33,8 +34,10 @@ export default function PhotosAddEdit({ isAddMode }) {
         photoUrl: "",
     }
     // If this is in edit mode, find the photo by id
-    const [searchParams] = useSearchParams()
-    const photoId = searchParams.get("photoId")
+    // const [searchParams] = useSearchParams()
+    // const photoId = searchParams.get("photoId")
+    const { photoId } = useParams()
+    console.log(photoId)
     const photo = useSelector(
         (state) =>
             state.photos.find((photo) => photo.id === +photoId && photo.userId === userId) // +x means convert x to number
