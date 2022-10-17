@@ -4,6 +4,7 @@ import { Controller } from "react-hook-form"
 import React, { useState } from "react"
 import { FormErrorMsg } from "components/Form"
 
+// Only use this component inside React Hook Form components
 export default function PhotoPicker({
     name,
     control,
