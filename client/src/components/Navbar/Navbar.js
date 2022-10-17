@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import { Container } from "@mui/material"
 
@@ -11,11 +11,17 @@ import pathNames from "routes/pathNames"
 export default function Navbar() {
     const [showDropdown, setShowDropdown] = useState(false)
 
+    const navigate = useNavigate()
     const user = useSelector((state) => state.user.userInfo)
     const dispatch = useDispatch()
 
+    const handleProfile = () => {
+        navigate(`${pathNames.PROFILE}/${user.id}`)
+    }
+
     const handleLogout = () => {
         dispatch(logout())
+        navigate(pathNames.HOME)
     }
 
     return (
@@ -37,7 +43,8 @@ export default function Navbar() {
                             {showDropdown && (
                                 <div className="navbar__user__dropdown">
                                     <ul>
-                                        <li>Profile</li>
+                                        <li onClick={handleProfile}>Profile
+                                        </li>
                                         <li onClick={handleLogout}>Log out</li>
                                     </ul>
                                 </div>

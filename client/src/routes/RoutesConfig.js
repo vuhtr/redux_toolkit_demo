@@ -28,10 +28,18 @@ const RoutesConfig = [
     },
     {
         path: pathNames.PHOTOS_ADD_EDIT,
-        element: <PhotosAddEdit isAddMode={true} />,
+        element: <PhotosAddEdit />,
+    },
+    {
+        path: pathNames.PHOTOS_ADD_EDIT_PARAMS,
+        element: <PhotosAddEdit />,
     },
     {
         path: pathNames.PROFILE,
+        element: <Profile />,
+    },
+    {
+        path: pathNames.PROFILE_PARAMS,
         element: <Profile />,
     },
     {

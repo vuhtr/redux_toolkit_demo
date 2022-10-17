@@ -1,0 +1,36 @@
+.profile-edit {
+    width: 100%;
+
+    &__top {
+        display: flex;
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__form {
+        width: 100%;
+    }
+
+    &__avatar {
+        margin-right: 28px;
+        
+        img {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    &__infor {
+        flex: 1;
+        
+        input {
+            width: 100%;
+        }
+    }
+
+}

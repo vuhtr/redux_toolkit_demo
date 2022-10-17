@@ -16,9 +16,13 @@ const userSlice = createSlice({
             state.accessToken = null
             state.userInfo = {}
         },
+
+        updateInfor: (state, action) => {
+            state.userInfo = action.payload
+        }
     },
 })
 
 const { reducer, actions } = userSlice
-export const { login, logout } = actions
+export const { login, logout, updateInfor } = actions
 export default reducer

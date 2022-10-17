@@ -1,0 +1,24 @@
+@import "./ProfileInfor/ProfileInfor.scss";
+
+.profile {
+    margin: 32px 0;
+
+    &__container {
+        
+    }
+
+    &__title {
+        text-align: center;
+        margin-bottom: 16px;
+    }
+
+    &__tabs {
+        margin: auto;
+        width: 800px;
+        max-width: calc(100% - 32px);
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+        flex: 1;
+    }
+}

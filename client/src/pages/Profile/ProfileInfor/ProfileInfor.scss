@@ -1,0 +1,33 @@
+@import "./ProfileEdit/ProfileEdit.scss";
+
+.profile-infor {
+    display: flex;
+    
+    &__avatar {
+        margin-right: 28px;
+        
+        img {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+        }
+    }
+
+    &__content {
+        flex: 1;
+
+    }
+
+    &__title {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__detail {
+        margin-top: 16px;
+
+        span {
+            font-weight: bold;
+        }
+    }
+}
